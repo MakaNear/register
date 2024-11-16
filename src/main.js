@@ -9,9 +9,9 @@ function getURLContentHTML() {
   let hashlink = getHash();
   switch (hashlink) {
     case "register":
-      return url.pages.register + "register.html";
+      return url.pages.register + "wrapper-register.html";
     default:
-      return url.pages.register + "register.html";
+      return url.pages.register + "wrapper-register.html";
   }
 }
 

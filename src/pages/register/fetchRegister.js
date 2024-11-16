@@ -1,4 +1,6 @@
-export default function fetchRegister() {
+import { backend } from "../../helpers/urlConfig.js";
+
+export async function fetchRegister() {
   const getEmail = document.querySelector("input[name='Email']");
   const getName = document.querySelector("input[name='Name']");
   const getPassword = document.querySelector("input[name='Password']");
@@ -27,16 +29,10 @@ export default function fetchRegister() {
 
     console.log(raw);
 
-    fetch(
-      "https://asia-southeast2-awangga.cloudfunctions.net/jualin/auth/regis",
-      requestOptions
-    )
+    fetch(backend.register, requestOptions)
       .then(async (response) => {
         const status = response.status;
         const result = await response.json();
-
-        console.log(status);
-        console.log(result);
 
         if (status === 200) {
           Swal.fire({
